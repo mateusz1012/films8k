@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <title>Your films</title>
+</head>
+<body>
+<!--/*@thymesVar id="film" type="com.example.films8k.commands.FilmCommand"*/-->
+<!--/*@thymesVar id="productionCompany" type="com.example.films8k.model.ProductionCompany"*/-->
+<div class="container" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            <div class="panel-primary">
+                <div class="panel-heading card text-center">
+                    <h1 class="card-header">Film</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-striped">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                            <th>Title</th>
+                            <th>Production Company</th>
+                            <th>Premiere</th>
+                            <th>Actions</th>
+                            </thead>
+                            <tr th:each="film : ${films}">
+                                <td th:text="${film.title}">IRON MAN</td>
+                                <td th:text="${film.productionCompany.name}">Marvel</td>
+                                <td th:text="${film.premiere}">2019</td>
+                                <td>
+                                    <a href="#" th:href="@{'/film/' + ${film.id} + '/show'}" style="margin-right: 5px">View</a>
+                                    <a href="#" th:href="@{'/film/' + ${film.id} + '/delete'}" style="margin-right: 5px">Delete</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            <div class="col-md-8">
+                <input onclick='javascript:window.history.back()' value='Back' type='button' class="btn btn-outline-dark"/>
+            </div>
+            <div class="col-md-8">
+                <a href="#" th:href="@{'/film/new'}" role="button" class="btn btn-outline-success">Add</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

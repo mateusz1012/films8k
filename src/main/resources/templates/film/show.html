@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <title th:text="${film.title}">The Film Details</title>
+</head>
+<body>
+<div class="container" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            <div class="panel-group">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="card-header text-center" th:text="${film.title}">Film Title</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h5><b>Directors:</b></h5>
+                            </div>
+                            <div class="col-md-6">
+                                <ul th:remove="All">
+                                    <li>One</li>
+                                    <li>Two</li>
+                                    <li>Three</li>
+                                </ul>
+                                <span th:each="director : ${film.directors}">
+                                    <h5 th:text="${director.firstName + ' ' +  director.lastName} + (${directorStat.count} == 1 ? '' : ' & ')"></h5>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 form-group">
+                                <h5><b>FilmGenre:</b></h5>
+                            </div>
+                            <div class="col-md-10">
+                                <h5 th:text="${film.filmGenre}">FilmGenre</h5>
+                            </div>
+                            <div class="col-md-2 form-group">
+                                <h5><b>Premiere:</b></h5>
+                            </div>
+                            <div class="col-md-10">
+                                <h5 th:text="${film.premiere}">Premiere</h5>
+                            </div>
+                            <div class="col-md-2 form-group">
+                                <h5><b>Budget:</b></h5>
+                            </div>
+                            <div class="col-md-10">
+                                <h5 th:text="${film.budget}">Budget</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 form-group">
+                                <h5><b>Production Company:</b></h5>
+                            </div>
+                            <div class="col-md-10">
+                                <h5 th:text="${film.productionCompany.name}">Production Company</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

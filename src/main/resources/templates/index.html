@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <title>Films Main Page</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-brand" href="#">Films</a>
+        </div>
+        <div class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <form class="form-inline">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Email/Username">
+                </div>
+                <div class="input-group">
+                    <input type="password" class="form-control" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron">
+    <div class="container">
+        <h1>The Best Movies Ever!</h1>
+        <p>Movies that you have to see because they change the way you think. Wondering what to watch in the evening? See!</p>
+        <p><a class="btn btn-info btn-lg" role="button">Come into the world! &bigstar;</a></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <h2>Films</h2>
+            <p>Recommended films:</p>
+            <ul>
+                <li><a href="#" th:href="@{'/film/list'}" style="margin-right: 5px">List</a>all of your films</li>
+                <li><a href="#" th:href="@{'/film/new'}" style="margin-right: 5px">Add new</a>film</li>
+            </ul>
+            <p><a class="btn btn-outline-dark" href="#" role="button" th:href="@{'/films/'}">All Films &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Directors</h2>
+            <p>Directors of your films:</p>
+            <ul>
+                <li><a href="#" th:href="@{'/director/list'}" style="margin-right: 5px">List</a>all of your directors</li>
+                <li><a href="#" th:href="@{'/director/new'}" style="margin-right: 5px">Add new</a>director</li>
+            </ul>
+            <p><a class="btn btn-outline-dark" href="#" role="button" th:href="@{'/directors/'}">All Directors &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Production Company</h2>
+            <p>Production Company of your films:</p>
+            <ul>
+                <li><a href="#" th:href="@{'/productionCompany/list'}" style="margin-right: 5px">List</a>all of your productions company</li>
+                <li><a href="#" th:href="@{'/productionCompany/new'}" style="margin-right: 5px">Add new</a>production company</li>
+            </ul>
+            <p><a class="btn btn-outline-dark" href="#" role="button" th:href="@{'/productionsCompany/'}">All Productions Company &raquo;</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Production Company Form</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<!--/*@thymesVar id="productionCompany" type="com.example.films8k.commands.ProductionCompanyCommand"*/-->
+<div class="container" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            <form th:object="${productionCompany}" th:action="@{/productionCompany/}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <div class="form-group">
+                    <div class="panel-primary">
+                        <div class="panel-heading">
+                            <h1 class="panel-title"><span th:text="*{id} != null ? 'Edit' : 'New '"></span>Production Company Information</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-8 form group">
+                                    <label>Name:</label>
+                                    <input type="text" class="form-control" th:field="*{name}"/>
+                                </div>
+                                <div class="col-md-8 form group">
+                                    <label>NIP:</label>
+                                    <input type="text" class="form-control" th:field="*{nip}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 form group">
+                                    <label>Address:</label>
+                                    <input type="text" class="form-control" th:field="*{address}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
